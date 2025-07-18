@@ -1,0 +1,463 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EsportRegion - Accueil{% endblock %}
+
+{% block body %}
+{# https://www.youtube.com/watch?v=Rh2Hlrg6ZEM   https://www.youtube.com/watch?v=n6f7q_OVkpU#}
+<section class="full-height no-top no-bottom jarallax" data-video-src="https://www.youtube.com/watch?v=Rh2Hlrg6ZEM">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <div class="overlay-bg t50 no-top no-bottom">
+        <div class="v-center">
+            <div class="container z-1000">
+                <div class="row align-items-center">                        
+                    <div class="col-lg-10 offset-lg-1 text-center">
+                        <div class="subtitle blink mb-4">Organisez, participez et dominez les tournois esport de votre région !</div>
+                        <h1 class="mb-0 wow fadeInUp">EsportRegion</h1>                                    
+                    </div>
+                    <div class="col-lg-6 offset-lg-3 text-center text-white">
+                        <p class="wow fadeInUp">Connectez-vous sur plusieurs jeux et plateformes, affrontez les meilleurs joueurs locaux et révélez votre talent. Que vous soyez un joueur amateur ou professionnel, EsportRegion est votre plateforme ultime pour les compétitions gaming.</p>
+                        <twig:ButtonBootstrap
+                            route="#compare-plans"
+                            text="Découvrir nos services"
+                        />
+                        <div class="spacer-single"></div>
+
+                        <div class="de-rating-ext wow fadeInUp" data-wow-delay=".4s">
+                            <span class="d-stars">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </span>
+                            <span class="d-val">4.95</span>
+                            Plus de <strong>14086</strong>  joueurs nous font confiance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt90 no-bottom">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Notre mission</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Découvrez nos services disponnibles</h2>
+            </div>
+
+            <div class="clearfix"></div>
+
+                <twig:HomePageComponent
+                effectWowDelay="0s"
+                imgSrcHero="images/icons/1.png"
+                titleHero="Gestion Simplifiée "
+                descriptionHero="Créez et gérez facilement vos tournois de A à Z. Planification, inscription, suivi des équipes et résultats en quelques clics.  "
+                />
+                <twig:HomePageComponent
+                effectWowDelay=".2s"
+                imgSrcHero="images/icons/2.png"
+                titleHero="Multijeux Supportés"
+                descriptionHero="Organisez des tournois sur League of Legends, CS2, Valorant, Rocket League et bien d'autres. Support technique pour tous les formats de jeux. "
+                />
+                <twig:HomePageComponent
+                effectWowDelay=".4s"
+                imgSrcHero="images/icons/3.png"
+                titleHero="Support Technique"
+                descriptionHero="Assistance dédiée à la gestion de vos tournois. Plateforme intuitive, support en ligne rapide et outils de coordination pour une organisation fluide de vos compétitions. "
+                />
+                <twig:HomePageComponent
+                effectWowDelay=".6s"
+                imgSrcHero="images/icons/4.png"
+                titleHero="Support Communautaire"
+                descriptionHero="Connectez-vous avec les joueurs locaux, créez des événements dynamiques et renforcez la scène esport régionale. "
+                />
+
+        </div>
+    </div>
+</section>
+
+<section id="compare-plans" class="no-bottom">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Nos packages</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Choisissez votre Formule de Tournoi</h2>                       
+            </div>                        
+        </div>
+
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-4 mb-sm-30 wow fadeInRight" data-wow-delay=".2s">
+                    <div class="de-pricing-plan bg-dark-2 h-100">
+                        <div class="d-title">Warrior</div>
+                        <div class="d-stars"><i class="fa fa-star"></i></div>
+                        <div class="spacer-20"></div>
+                        <div class="d-specs">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="d-item">
+                                        20<span>Joueurs</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-item">
+                                        Gestion<span> simplifiée des inscriptions</span>
+                                        Support<span> technique de base</span>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="spacer-20"></div>
+                        <div class="d-price">
+                            <span class="d-cur">Parfait pour vos premiers pas dans l'organisation de tournois ou pour des événements à échelle locale.</span>
+                            
+                        </div>
+                        
+                        <div class="spacer-20"></div>
+                        <a class="btn-main btn-fullwidth" href="#"><span>Configurer mon tournois</span></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-sm-30 wow fadeInRight" data-wow-delay=".4s">
+                    <div class="de-pricing-plan bg-dark-2 h-100 d-feature">
+                        <div class="d-badge">Plus utilisées</div>
+                        <div class="d-title">General</div>
+                        <div class="d-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                        <div class="spacer-20"></div>
+                        <div class="d-specs">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="d-item">
+                                        40<span>Joueurs</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-item">
+                                        Outils <span>avancés de gestion de tournoi</span>
+                                        Support <span>technique prioritaire</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer-20"></div>
+                        <div class="d-price">
+                            <span class="d-cur">Une solution robuste pour les événements de plus grande envergure, avec des fonctionnalités de suivi en temps réel et un support de qualité.</span>
+                        </div>
+                        <div class="spacer-20"></div>
+                        <a class="btn-main btn-fullwidth" href="#"><span>Configurer mon tournois</span></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-sm-30 wow fadeInRight" data-wow-delay=".6s">
+                    <div class="de-pricing-plan bg-dark-2 h-100">
+                        <div class="d-title">Commander</div>
+                        <div class="d-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                        <div class="spacer-20"></div>
+                        <div class="d-specs">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="d-item">
+                                        100<span>Joueurs</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-item">
+                                        Gestion <span>complète de tournoi multi-jeux</span>
+                                        Support<span>technique dédié</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer-20"></div>
+                        <div class="d-price">
+                            <span class="d-cur">Le choix incontournable pour des compétitions internationales ou professionnelles, avec des outils de pointe pour gérer, analyser et diffuser votre tournoi.</span>
+                            
+                        </div>
+                        
+                        <div class="spacer-20"></div>
+                        <a class="btn-main btn-fullwidth" href="#"><span>Configurer mon tournois</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container z-1000">
+        <div class="row align-items-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Rejoignez l'arène et défiez vos adversaires !</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Fiches de Tournois</h2>
+            </div>
+        </div>
+
+        {# ICI SE TROUVERAS LES FICHES DES TOURNOIS  #}
+        <div class="row g-4 sequence">
+            {% for tournamentsDet in tournaments %}
+                <twig:TournamentCard 
+                plateform=""
+                name="{{ tournamentsDet.name }}"
+                date_start="{{ tournamentsDet.dateStart|date('d/m/Y') }}"
+                date_end="{{ tournamentsDet.dateEnd|date('d/m/Y') }}"
+                route="{{ path('app_tournament_show',{ id: tournamentsDet.id })  }}"
+                limitPlayer="{{ tournamentsDet.limitPlayer }}"
+                imgSrcTournaments="{{ tournamentsDet.imgCard }}"     
+                />
+            {% else %}
+            <twig:TournamentCard 
+                plateform="Plateforme"
+                name="Nom du tournois"
+                date="18.10.2025"
+                limitPlayer="40"
+                imgSrcTournaments="jhfjqksrghjrsgbedrgnejkdgnjkdngjkdghjkg.webp"
+                />
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
+
+<section class="no-top no-bottom jarallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Tournois Esports</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Compétitions Gaming en Alsace</h2>
+            </div>
+
+            <div class="spacer-10"></div>
+
+            <div class="col-lg-12 wow fadeInUp">
+                <div class="p-sm-30 pb-sm-0 mb-sm-0">
+                    <div class="de-map-hotspot">
+                        <div class="de-spot wow fadeIn" style="top:39%; left:50%">
+                            <span>Colmar</span>
+                            <div class="de-circle-1"></div>
+                            <div class="de-circle-2"></div>
+                        </div>
+                        <div class="de-spot wow fadeIn" style="top:60%; left:77%">
+                            <span>Strasbourg</span>
+                            <div class="de-circle-1"></div>
+                            <div class="de-circle-2"></div>
+                        </div>
+                        <div class="de-spot wow fadeIn" style="top:28%; left:20%">
+                            <span>Mulhouse</span>
+                            <div class="de-circle-1"></div>
+                            <div class="de-circle-2"></div>
+                        </div>
+                        <div class="de-spot wow fadeIn" style="top:55%; left:87%">
+                            <span>Niederschaffolsheim</span>
+                            <div class="de-circle-1"></div>
+                            <div class="de-circle-2"></div>
+                        </div>
+                        <div class="de-spot wow fadeIn" style="top:25%; left:60%">
+                            <span>Aubure</span>
+                            <div class="de-circle-1"></div>
+                            <div class="de-circle-2"></div>
+                        </div>
+                        
+                        <img src="{{asset('images/misc/alsace-map.png')}}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>                        
+        </div>
+    </div>
+    <div class="no-bottom wow fadeInRight d-flex z-1000">
+      <div class="de-marquee-list wow">
+        <div class="d-item">
+          <span class="d-item-txt">Colmar</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Strasbourg</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Mulhouse</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Niederschaffolsheim</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Guebwiller</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Aubure</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Fréland</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Obernai</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Sigolsheim</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Ammerschwihr</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Le Bonhomme</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Ribeauvillé</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+          <span class="d-item-txt">Fortschwirh</span>
+          <span class="d-item-display">
+            <i class="d-item-block"></i>
+          </span>
+         </div>
+      </div>
+    </div>
+</section>            
+<section class="no-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">                            
+                <div class="subtitle wow fadeInUp mb-3">Questions Fréquentes</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Participer aux Tournois</h2>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-6">
+                <div class="accordion s2 wow fadeInUp">
+                    <div class="accordion-section">
+                        <div class="accordion-section-title" data-tab="#accordion-a1">
+                            Comment s'inscrire à un tournoi ?
+                        </div>
+                        <div class="accordion-section-content" id="accordion-a1">
+                            <p>L'inscription se fait directement en ligne sur notre plateforme. Choisissez le tournoi qui vous intéresse, remplissez le formulaire et acquittez les frais d'inscription le cas échéant.</p>
+                        </div>
+                        <div class="accordion-section-title" data-tab="#accordion-a2">
+                            Quels jeux sont proposés ?
+                        </div>
+                        <div class="accordion-section-content" id="accordion-a2">
+                            <p>Nous organisons des tournois sur différents genres : jeux de combat, FPS, MOBA, jeux de sports électroniques. Le programme complet est disponible dans la section "Tournois".</p>
+                        </div>                                        
+                        <div class="accordion-section-title" data-tab="#accordion-a3">
+                            Puis-je participer si je suis débutant ?
+                        </div>
+                        <div class="accordion-section-content" id="accordion-a3">
+                            <p>Absolument ! Nous proposons des tournois adaptés à tous les niveaux, avec des catégories débutants et confirmés.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="accordion s2 wow fadeInUp">
+                    <div class="accordion-section">
+                      
+                        <div class="accordion-section-title" data-tab="#accordion-a4">
+                            Quels sont les prix à gagner ?
+                        </div>
+                        <div class="accordion-section-content" id="accordion-a4">
+                            <p>Les récompenses varient selon les tournois : lots physiques, gains en argent, places pour des événements, etc. Consultez la page de chaque tournoi pour plus de détails.</p>
+                        </div>
+                        <div class="accordion-section-title" data-tab="#accordion-a5">
+                            Quels équipements sont nécessaires ?
+                        </div>
+                        <div class="accordion-section-content" id="accordion-a5">
+                            <p>Les prérequis techniques varient selon le jeu. Vérifiez la fiche technique de chaque tournoi avant de vous inscrire.</p>
+                        </div>
+                        <div class="accordion-section-title" data-tab="#accordion-a6">
+                            Comment se déroule un tournoi en ligne ?
+                        </div>
+                        <div class="accordion-section-content" id="accordion-a6">
+                            <p>Les matchs sont généralement organisés via des plateformes de jeux en ligne. Les détails de connexion vous seront communiqués après l'inscription.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="no-bottom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Nos plateformes</div>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">Découvrez nos univers de gaming</h2>
+                <div class="spacer-20"></div>
+            </div>
+        </div>
+        <div class="row g-4">
+          {% for gamesDet in games %}
+                <twig:GameCard 
+                plateform="{{ gamesDet.plateforms.name }}"
+                name="{{ gamesDet.name }}"
+                genre="{{ gamesDet.genre }}"
+                imgSrcGames="{{ gamesDet.img }}"
+                description="{{ gamesDet.description }}"
+                />
+            {% endfor %} 
+               {# ICI IL Y AURA DIFFERENTES CARD DES JEUX SUR LESQUELLES SE PORTE LES TOURNOIS #}
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Nos Partenaires Esport</div>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">Collaborations avec les grandes équipes françaises</h2>
+                <div class="spacer-20"></div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <div class="row g-4">
+
+                    <div class="col-sm-2 col-4">
+                        <div class="m-1 p-4 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img src="{{asset('images/payments/gentlemates.png')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 col-4">
+                        <div class="m-1 p-4 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img src="{{asset('images/payments/kc.jpg')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-4">
+                        <div class="m-1 p-4 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img src="{{asset('images/payments/vitality.png')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-4">
+                        <div class="m-1 p-4 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img src="{{asset('images/payments/gameward.jpg')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-4">
+                        <div class="m-1 p-4 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img src="{{asset('images/payments/direwolves.jpg')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-4">
+                        <div class="m-1 p-4 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img src="{{asset('images/payments/bds.jpg')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

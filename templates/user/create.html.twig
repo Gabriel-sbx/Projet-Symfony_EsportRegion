@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Création {% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/10.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+          
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Création d'un utilisateur</h2>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+               <div class="m-5">
+                <twig:ButtonBootstrap
+                    route="{{ path('app_user')}}"
+                    text="Retournez à la liste"
+                    />
+               </div>
+                
+            {{ form_start(formCreate) }}
+                {{ form_row(formCreate.name) }}   
+                {{ form_row(formCreate.surname) }}   
+                {{ form_row(formCreate.pseudo) }}   
+                {{ form_row(formCreate.email) }}   
+                {{ form_row(formCreate.password) }}   
+                {{ form_row(formCreate.isVerified) }}   
+                <div class="form-group">  
+                    <input type="submit" class="btn btn-main" value="Enregistrer">
+                </div>
+            {{ form_end(formCreate) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

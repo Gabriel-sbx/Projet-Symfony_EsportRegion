@@ -1,0 +1,22 @@
+
+<div class="col-lg-4 col-md-6 item popular {{ plateform }}">
+    <div class="de-item s2">
+        <div class="d-overlay">
+            <div class="d-label">
+               {{ plateform }} 
+            </div>
+            <div class="d-text">
+                <h4>{{ name }} </h4>
+                <div class="de-rating-ext">
+              
+                <span class="d-val">{{ limitPlayer }}  joueurs</span>
+            </div>
+            <div>
+                <p class="d-price">Débute le <span class="price">{{ date_start }} </span> jusqu'au <span class="price">{{ date_end }} </span></p>
+            </div>
+                <a class="btn-main btn-fullwidth" href="{{ route }}"><span>Découvrir</span></a>
+            </div>
+        </div>
+        <img src="{{asset('images/uploads/tournament/'~ imgSrcTournaments) }}" class="img-fluid" alt="">
+    </div>
+</div>

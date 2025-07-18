@@ -1,0 +1,20 @@
+<a type="button" class=" btn-line " data-bs-toggle="modal" data-bs-target="#{{ modalId}}">
+    <span>Gérer les rôles</span>
+</a>
+<div class="modal fade" id="{{ modalId}}" tabindex="-1" aria-labelledby="{{ modalId}}" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="{{ modalId}}">{{ title }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST" action="{{ formAction }}">
+          {% block content %} {% endblock %}
+          <div class="modal-footer">
+            <button type="button" class=" btn-main" data-bs-dismiss="modal">Fermer</button>
+            <button type="submit" class=" btn-line">Sauvegarder les changements</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

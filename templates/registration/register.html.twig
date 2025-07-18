@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <section class="v-center jarallax">
+        <div class="de-gradient-edge-top"></div>
+        <div class="de-gradient-edge-bottom"></div>
+        <img src="{{ asset('images/background/5.webp')}}" class="jarallax-img" alt="">
+        <div class="container z-1000">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="p-5 rounded-10 shadow-soft bg-dark-1">
+                            <h2>Inscrivez-vous !</h2>
+                            {{ form_errors(registrationForm) }}
+                            {{ form_start(registrationForm) }}
+                                {{ form_row(registrationForm.name) }}
+                                {{ form_row(registrationForm.surname) }}
+                                {{ form_row(registrationForm.pseudo) }}
+                                {{ form_row(registrationForm.email) }}
+                                {{ form_row(registrationForm.plainPassword, {
+                                    label: 'Mot de passe'
+                                }) }}
+                                {{ form_row(registrationForm.agreeTerms) }}
+                                <div class="form-group">  
+                                <button type="submit" class="btn-main">Enregistrer</button>
+                                </div>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock %}

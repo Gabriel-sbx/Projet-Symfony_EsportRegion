@@ -1,0 +1,63 @@
+
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Administration des tournois{% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/14.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="subtitle wow fadeInUp mb-3">Administration</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Ici vous pourrez accedez a la gestion complète d'un tournois</h2>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <p class="lead">
+                    Bienvenue dans votre espace d'administration. Cette interface vous permet de gérer tous les aspects des tournois de jeux vidéo, de la création jusqu'à la finalisation des résultats. Vous pouvez ajouter de nouveaux tournois, gérer les inscriptions des participants, organiser les matchs et suivre les résultats en temps réel.
+                </p>
+                {# <twig:ButtonBootstrap
+                route="{{ path('app_tournament_administration')  }}"
+                text="Gestion des Inscriptions aux tournois"
+                /> #}
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-3 my-3">  
+                <twig:ButtonBootstrap
+                route="{{ path('app_tournament_list')  }}"
+                text="Gestion des tournois"
+                />  
+            </div>         
+            <div class="col-lg-3 my-3"> 
+                <twig:ButtonBootstrap
+                route="{{ path('app_match_tournament_list_tournament')  }}"
+                text="Gestion des Matchs"
+                />
+            </div> 
+            <div class="col-lg-3 my-3"> 
+                
+                <twig:ButtonBootstrap
+                route="{{ path('app_game')  }}"
+                text="Gestion des Jeux"
+                />
+            </div> 
+            <div class="col-lg-3 my-3"> 
+                <twig:ButtonBootstrap
+                route="{{ path('app_plateform')  }}"
+                text="Gestion des Plateformes"
+                />
+            </div> 
+        </div>
+    </div>
+{% endblock %}

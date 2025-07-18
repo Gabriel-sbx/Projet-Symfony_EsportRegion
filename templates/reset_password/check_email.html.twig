@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Password Reset Email Sent{% endblock %}
+
+{% block body %}
+<section class="v-center jarallax">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="{{asset('images/background/7.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+            <div class="row align-items-center">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="padding40 rounded-10 shadow-soft bg-dark-1">
+                        <div class="text-center">
+                        </div>
+                        <div class="spacer-10"></div>
+
+                        <p>
+                            Si un compte correspondant à votre e-mail existe, un e-mail vient d'être envoyé qui contient un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+                             Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                             Si vous ne recevez pas d'e-mail, veuillez consulter votre dossier de spam ou réessayer.
+                         
+                        <p>Si vous ne recevez pas d'e-mail, veuillez consulter votre dossier de spam ou réessayer.<a href="{{ path('app_forgot_password_request') }}">Réessayer</a>.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+    
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialiser votre mot de passe{% endblock %}
+
+{% block body %}
+
+<section class="v-center jarallax">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="{{asset('images/background/9.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+            <div class="row align-items-center">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="padding40 rounded-10 shadow-soft bg-dark-1">
+                        <div class="text-center">
+                            <h4>Réinitialiser votre mot de passe</h4>
+                        </div>
+                        {% for flash_error in app.flashes('reset_password_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                        {% endfor %}
+                        <div class="spacer-10"></div>
+
+
+                        
+                        {{ form_start(requestForm) }}
+                        {{ form_row(requestForm.email) }}
+                        <div>
+                            <small>
+                                Saisissez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.
+                            </small>
+                        </div>
+                        <div >                        
+                            <button class="btn btn-primary">Réintialiser le mot de passe</button>
+                        </div>
+                        {{ form_end(requestForm) }}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+   
+{% endblock %}

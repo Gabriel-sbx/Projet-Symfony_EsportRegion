@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EsportRegion - Contact{% endblock %}
+
+{% block body %}
+
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/subheader-contact.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="subtitle wow fadeInUp mb-3">Vous avez des</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Questions sur nos tournois ?</h2>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+
+            <div class="col-lg-10 offset-lg-1">
+
+                <p class="lead">
+                    Avant de nous contacter, nous vous conseillons de consulter notre FAQ pour trouver des réponses rapides à vos questions fréquentes. 
+                    Si vous avez des questions spécifiques sur nos prochains événements, n'hésitez pas à nous envoyer un message.
+                </p>
+
+
+                <form name="contactForm" id="contact_form" class="position-relative z1000" method="#" >
+                    <div class="row gx-4">
+                        <div class="col-lg-6 mb10">
+                            <div class="field-set">
+                                <span class="d-label">Nom Complet</span>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="field-set">
+                                <span class="d-label">Adresse Email</span>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+
+                            <div class="field-set">
+                                <span class="d-label">Numéro de Téléphone</span>
+                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="field-set mb20">
+                                <span class="d-label">Message</span>
+                                <textarea name="message" id="message" class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    
+                    <div class="g-recaptcha" data-sitekey="6LdW03QgAAAAAJko8aINFd1eJUdHlpvT4vNKakj6"></div>
+                    <div id='submit' class="mt20">
+                        <input type='submit' id='send_message' value='Envoyer votre message' class="btn-main">
+                    </div>
+
+                    <div id="success_message" class='success'>
+                        Votre message a bien été envoyé. Rafraîchissez cette page si vous souhaitez envoyer un autre message.
+                    </div>
+                    <div id="error_message" class='error'>
+                        Désolé, une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.
+                    </div>
+                </form>
+
+                </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

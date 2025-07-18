@@ -1,0 +1,51 @@
+ <!-- header begin -->
+ <header class="transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="de-flex sm-pt10 mt-2">
+                    <div class="de-flex-col">
+                        <div class="de-flex-col">
+                            <!-- logo begin -->
+                            <div id="logo ">
+                                <a href="{{ path('app_home') }}">
+                                    <img class="logo-main" src="{{asset('images/logo-test.png')}}" alt="" >
+                                    <img class="logo-mobile" src="{{asset('images/logo-mobile-test.png')}}" alt="" >
+                                </a>
+                            </div>
+                            <!-- logo close -->
+                        </div>
+
+                    </div>
+                    <div class="de-flex-col header-col-mid">
+                        <ul id="mainmenu">
+                            <twig:NavLink route="app_home" text="Accueil"/>
+                            <twig:NavLink route="app_tournament" text="Tournois"/>
+                            <twig:NavLink route="app_tournament_location" text="Localisation"/>
+                            <twig:NavLink route="app_about" text="A propos"/>                           
+                            <twig:NavLink route="app_contact" text="Contact"/>
+                        </ul>
+                    </div>
+                    <div class="de-flex-col">
+                        <div class="">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <a href="{{ path('app_profil', {'id': app.user.id}) }}" class="  mx-3 btn-main btn-line"><span>Mon profil</span></a>
+                            <a href="{{ path('app_logout') }}" class="btn-main wow fadeInUp"><span>Deconnexion</span></a>                            
+                           <a href="#" class=" ms-4 "> <span class="btn-main wow fadeInUp subtitle blink ">Connecté</span></a>
+{# {{app.user.pseudo }} #}
+                            {% else %} 
+                            <a href="{{ path('app_login') }}" class="  mx-4 btn-main btn-line"><span>Connexion</span></a>
+                            
+                            <a href="{{ path('app_register') }}" class="btn-main wow fadeInUp"><span>Inscription</span></a>
+                           
+                            {% endif %}
+                            <span id="menu-btn"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>                        
+
+<!-- header close -->

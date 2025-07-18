@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Match{% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/12.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="subtitle wow fadeInUp mb-3">Administration</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Les matchs du tournois : {{ tournaments.name}} </h2>                
+                <a href="{{ path('app_match_tournament_list_tournament') }}" class=" btn-line wow fadeInUp my-2 " data-wow-delay=".4s" onclick="">Retour au panneau d'administration</a>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            {% include('_partial/flashes.inc.twig') %}
+            <div class="col-lg-10 offset-lg-1">
+                <twig:ButtonBootstrap
+                route="{{  path('app_match_tournament_create', {'id': tournaments.id}) }}"
+                text="Créer un nouveau match"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="container ">
+        <div class="row">
+            <div class="">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="">Liste des matchs :</h4>
+                </div>
+                <table class="table table-dark  my-5">
+                    <thead>
+                        <tr>
+                        <th class="p-3 text-center  table-header-custom " scope="col">Id</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Round</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Jeux</th>
+
+                        <th class="p-3 text-center  table-header-custom" scope="col">Participant 1</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Participant 2</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Résultat</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Date</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>            
+                        {% for matchsDet in matchs %}                            
+                        <tr> 
+                        <th class="text-center align-middle " scope="row">{{ matchsDet.id }}</th>
+                        <td class="text-center align-middle ">{{ matchsDet.round }}</td>
+                        <td class="text-center align-middle ">{{ matchsDet.games.name }}</td>
+                        <td class="text-center align-middle ">{{ matchsDet.groupeParticipant1 }}</td>
+                        <td class="text-center align-middle ">{{ matchsDet.groupeParticipant2 }}</td>
+                        <td class="text-center align-middle ">
+                        {% if matchsDet.scores %}
+                            <div class="bg-success">{{ matchsDet.scores }}</div>
+                        {% else %}
+                            <div class=" bg-danger">Non joué</div>
+                        {% endif %}
+                        </td>
+                        <td class="text-center align-middle ">{{ matchsDet.date|date('d/m/y H:i') }}</td>
+                        <td class="text-center ">
+                            <a href="{{ path('app_match_tournament_edit', { id: matchsDet.id }) }}" class="btn-main wow fadeInUp m-1"><span>Modifier</span></a>
+                            <a href="{{ path('app_match_tournament_delete', {  id: matchsDet.id  }) }}" class=" btn-line wow m-1" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce match?');">Supprimer</a>
+                        </td>
+                        </tr> 
+                        {% endfor %}
+                    </tbody>
+                </table>    
+                <twig:ButtonBootstrap
+                route="{{ path('app_tournament_show', {'id': tournaments.id}) }}"
+                text="Aller au tournois"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="container m-top-5 ">
+        <div class="row">
+            <div class="">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="">Liste des Utilisateurs inscrit :</h4>
+                </div>
+                <table class="table table-dark  my-5">
+                    <thead>
+                        <tr>
+                        <th class="p-3 text-center  table-header-custom " scope="col">Id</th> 
+                        <th class="p-3 text-center  table-header-custom" scope="col">E-mail</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Pseudo</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Nom</th>
+                        </tr>
+                    </thead>
+                    <tbody>            
+                        {% for regsitrationsDet in regsitrations %}      
+                        <tr> 
+                        <th class="text-center align-middle " scope="row">{{ regsitrationsDet.id }}</th>  
+                        <td class="text-center align-middle ">{{ regsitrationsDet.email }}</td>
+                        <td class="text-center align-middle ">{{ regsitrationsDet.pseudo }}</td>
+                        <td class="text-center align-middle ">{{ regsitrationsDet.name }}</td>
+                        </tr>                           
+                        {% endfor %}
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
+{% endblock %}

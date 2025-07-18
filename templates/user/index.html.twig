@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Accueil{% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/3.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="subtitle wow fadeInUp mb-3">Administration</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Gestion des Utilisateurs</h2>                
+                <a href="{{ path('app_tournament') }}" class=" btn-line wow fadeInUp my-2 " data-wow-delay=".4s" onclick="">Retour en arrière</a>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            {% include('_partial/flashes.inc.twig') %}
+            <div class="col-lg-10 offset-lg-1">
+                <p class="lead">
+                    Ici vous pourrez accedez à la gestion des utilisateurs
+                </p>
+                <twig:ButtonBootstrap
+                route="{{ path('app_user_create')  }}"
+                text="Créer un nouveau utilisateurs"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="container ">
+        <div class="row">
+            <div class="">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="">Liste des utilisateurs du site :</h4>
+                </div>
+                <table class="table table-dark my-5">
+                    <thead>
+                        <tr class=" ">
+                        <th class="p-3 text-center  table-header-custom " scope="col">Id</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Nom</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Prénom</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Pseudo</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">E-mail</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Rôles</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>            
+                        {% for usersDet in users %}                            
+
+                        <tr class=""> 
+                            <th class="text-center align-middle " scope="row">{{ usersDet.id }}</th>
+                            <td class="text-center align-middle ">{{ usersDet.name }}</td>
+                            <td class="text-center align-middle ">{{ usersDet.surname }}</td>
+                            <td class="text-center align-middle ">{{ usersDet.pseudo }}</td>
+                            <td class="text-center align-middle ">{{ usersDet.email }}</td>
+                            <td class="text-center align-middle ">
+                                <twig:BootstrapModal 
+                                modalId="user-role-id-{{ usersDet.id}}"
+                                title="Gestion du role de {{ usersDet.pseudo}}"
+                                formAction="{{ path('app_user_roles', {id:  usersDet.id} )}}"
+                                >
+                                    <div class="modal-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"  name="user-role-modal-{{ usersDet.id}}-user" id="user-role-modal-{{ usersDet.id}}-user" disabled {% if usersDet|has_role('ROLE_USER') %}checked{% endif %} >
+                                            <label class="form-check-label" for="user-role-modal-{{ usersDet.id}}-user">
+                                            Utilisateurs standards (Joueur)
+                                            </label>
+                                        </div>    
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"  name="user-role-modal-{{ usersDet.id}}-modo" id="user-role-modal-{{ usersDet.id}}-modo" {% if usersDet|has_role('ROLE_GEST') %}checked{% endif %}>
+                                            <label class="form-check-label" for="user-role-modal-{{ usersDet.id}}-modo">
+                                            Gestionnaire du site (Organisateur)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"  name="user-role-modal-{{ usersDet.id}}-admin" id="user-role-modal-{{ usersDet.id}}-admin" {% if usersDet|has_role('ROLE_ADMIN') %}checked{% endif %}>
+                                            <label class="form-check-label" for="user-role-modal-{{ usersDet.id}}-admin">
+                                            Adminsitrateur                
+                                            </label>
+                                        </div> 
+                                    </div>
+                                </twig:BootstrapModal>              
+                            </td>
+                            <td class="text-center ">
+                                <a href="{{ path('app_user_edit', { id: usersDet.id }) }}" class="btn-main wow fadeInUp m-1"><span>Modifier</span></a>
+                                <a href="{{ path('app_user_delete', { id: usersDet.id }) }}" class=" btn-line wow m-1" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette utilisateur?');">Supprimer</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
+{% endblock %}

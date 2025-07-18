@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Match{% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/12.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Création d'un match</h2>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+               <div class="m-5">
+               <twig:ButtonBootstrap
+                route="{{ path('app_match_tournament_list_match', { id: tournaments.id })  }}"
+                text="Retournez à la liste"
+                />
+               </div>
+            {{ form_start(formCreate) }}
+                {{ form_row(formCreate.round) }}
+                {{ form_row(formCreate.groupe_participant_1) }}
+                {{ form_row(formCreate.groupe_participant_2) }}
+                {{ form_row(formCreate.scores) }}
+                {{ form_row(formCreate.games) }}                
+                {{ form_row(formCreate.description) }}                
+                {{ form_row(formCreate.date) }}                
+                {{ form_row(formCreate.tournaments) }}
+                <div class="form-group">  
+                    <button type="submit" class=" btn-main">Enregistrer</button>
+                </div>
+            {{ form_end(formCreate) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

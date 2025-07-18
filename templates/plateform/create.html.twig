@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Créer une plateforme{% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/12.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Création d'une plateforme</h2>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+               <div class="m-5">
+               <twig:ButtonBootstrap
+                route="{{ path('app_plateform')  }}"
+                text="Retournez à la liste"
+                />
+               </div>
+                {# {{ form(formCreate) }} #}
+            {{ form_start(formCreate) }}
+                {{ form_row(formCreate.name) }}
+                <div class="form-group">  
+                    <button type="submit" class=" btn-main">Enregistrer</button>
+                </div>
+            {{ form_end(formCreate) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,7 @@
+<div class="my-5" id="toastPlacement" data-original-class="toast-container p-3">
+    {% for flashtype, messages in app.flashes %}
+        {% for message in messages %}
+            <twig:BootstrapToast type="{{ flashtype }}" text="{{ message }}" />
+        {% endfor %}
+    {% endfor %}
+</div>

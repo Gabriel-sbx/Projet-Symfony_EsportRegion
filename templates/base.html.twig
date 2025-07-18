@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" href="{{ asset('images/icon.png') }}" type="image/png" sizes="16x16">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+        <meta content="Playhost - Game Hosting Website Template" name="description" >
+        {% block stylesheets %}
+        {% endblock %} 
+         <!-- CSS Files
+       ================================================== -->
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}  
+        {% endblock %}
+         <link href="{{ asset('css/plugins.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/swiper.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/coloring.css') }}" rel="stylesheet" type="text/css" >
+        <!-- color scheme -->
+        <link id="colors" href="{{ asset('css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css" > 
+    </head>
+    <body class="dark-scheme">              
+        <div id="wrapper">
+            <div class="float-text show-on-scroll">
+                <span><a href="#">Scroll en haut</a></span>
+            </div>
+            <div class="scrollbar-v show-on-scroll"></div>
+            <!-- page preloader begin -->
+            <div id="de-loader"></div>
+        {% include('_partial/header.inc.twig') %}
+        <!-- content begin -->
+            <div class="no-bottom no-top" id="content">
+                <div id="top"></div>            
+                {% block body %}
+                {% endblock %}        
+            </div>
+        <!-- content close -->
+        {% include('_partial/footer.inc.twig') %}         
+            <script src="{{ asset('js/plugins.js') }}"></script>
+            <script src="{{ asset('js/designesia.js') }}"></script>
+            <script src="{{ asset('js/swiper.js') }}"></script>
+            <script src="{{ asset('js/custom-marquee.js') }}"></script>
+            <script src="{{ asset('js/custom-swiper-2.js') }}"></script> 
+        </div>
+    </body> 
+</html>

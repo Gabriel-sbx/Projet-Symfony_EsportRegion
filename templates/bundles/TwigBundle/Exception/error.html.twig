@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TournamentsController!{% endblock %}
+
+{% block body %}
+
+
+
+<section id="subheader" class="jarallax pb20">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="{{asset('images/background/subheader-game.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12 mb-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Erreur</div>
+                <h2 class="wow fadeInUp mb-0" data-wow-delay=".2s">Vous avez rencontrez une erreur</h2>
+                <hr class="mt20">
+                
+            </div>  
+        </div>
+    </div>
+</section>
+<section  class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                  
+                <p>Adipisicing pariatur dolor pariatur officia aliqua ex irure aliqua ut exercitation nulla exercitation esse duis do commodo exercitation sed exercitation aliquip fugiat. Ut excepteur deserunt labore exercitation commodo exercitation minim aliquip in aliqua deserunt nulla aliquip officia ut eiusmod irure ullamco sunt sunt velit dolor ex. Enim eu proident in non officia culpa.</p>
+                <a href="{{ path('app_home')}}" class="btn-main wow fadeInUp"><span>Retour a l'accueil</span></a>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

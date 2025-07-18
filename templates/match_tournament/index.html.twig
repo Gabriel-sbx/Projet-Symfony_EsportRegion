@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+{% block title %}EsportRegion - Match{% endblock %}
+{% block body %}
+<section id="subheader" class="jarallax">
+    <img src="{{asset('images/background/12.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="subtitle wow fadeInUp mb-3">Administration</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Liste des tournois</h2>   
+                <a href="{{ path('app_tournament_administration') }}" class=" btn-line wow fadeInUp my-2 " data-wow-delay=".4s" onclick="">Retour au panneau d'administration</a>
+            </div>                 
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section>
+    <div class="container position-relative z1000">
+        <div class="row">
+            {% include('_partial/flashes.inc.twig') %}
+            <div class="col-lg-10 offset-lg-1">
+                <p class="lead">
+                    Ici vous pourrez accedez à la gestion des matchs
+                </p>
+               
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container-fluid m-5 ">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-9 align-item-center">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="">Liste des tournois :</h4>
+                </div>
+                
+                <table class="table table-dark  ">
+                    <thead>
+                        <tr>
+                        <th class="p-3 text-center  table-header-custom " scope="col">Id</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Nom</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Plateforme</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Limite de joueur</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Status du tournois</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Date de début</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Date de fin</th>
+                        <th class="p-3 text-center  table-header-custom" scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>            
+                        {% for tournamentsDet in tournaments %}                            
+                        <tr> 
+                        <th class="text-center align-middle " scope="row">{{ tournamentsDet.id }}</th>
+                        <td class="text-center align-middle ">{{ tournamentsDet.name }}</td>
+                        <td class="text-center align-middle ">{{ tournamentsDet.plateforms.name }}</td>
+                        <td class="text-center align-middle ">{{ tournamentsDet.limitPlayer }}</td>
+                        <td class="text-center align-middle ">  
+                            {% if tournamentsDet.registrationOpen == 1 %}
+                                <div class="bg-danger">Complet</div>
+                            {% elseif tournamentsDet.registrationOpen == 0 %}
+                                <div class=" bg-success">Ouvert</div>
+                            {% endif %}
+                        </td>
+                        <td class="text-center align-middle ">{{ tournamentsDet.dateStart|date('d/m/y') }}</td>
+                        <td class="text-center align-middle ">{{ tournamentsDet.dateEnd|date('d/m/y') }}</td>
+                        <td class="text-center ">
+                            <a href="{{ path('app_match_tournament_list_match', { id: tournamentsDet.id }) }}" class="btn-main  m-1"><span>Voir les matchs</span></a>
+                        </td>
+                        
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>    
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+</div>
+{% endblock %}

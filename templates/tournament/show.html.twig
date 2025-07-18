@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EsportRegion - {{oneTournaments.name }}{% endblock %}
+
+{% block body %}
+<section id="subheader" class="jarallax">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="{{ asset('images/background/subheader-game-2.webp')}}" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-2 d-lg-block d-none">
+                <img src="{{ asset('images/uploads/tournament/'~ oneTournaments.imgCard) }}" class="img-fluid wow fadeInUp" alt="">
+            </div>
+            <div class="col-lg-6">
+                <div class=" btn-line  subtitle  fadeInUp mb-3 mx-2">Tournois Esport</div>
+                <div class=" btn-line  subtitle  fadeInUp mb-3 mx-2">{{oneTournaments.plateforms.name }}</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">{{ oneTournaments.name }}</h2>
+                <div class="de-rating-ext wow fadeInUp" data-wow-delay=".4s">
+                    <div>
+                    <span class="d-val">{{ oneTournaments.limitPlayer }}</span> nombre maximum de joueurs
+                    </div>
+                    Débute <strong>{{ oneTournaments.dateStart|date('d/m/Y') }}</strong> jusqu'au <strong>{{ oneTournaments.dateEnd|date('d/m/Y') }}</strong>.
+                </div>
+            </div>      
+        </div>
+    </div>
+</section>
+<!-- section close -->
+<section class="no-top">
+    <div class="container">
+      {% include('_partial/flashes.inc.twig') %}
+        <div class="row">
+              {# ICI IL Y AURA LES CARTE DE JEUX #}
+            {% for matchTournamentsDet in matchTournaments %}
+              <twig:MatchCard 
+              scores="{{ matchTournamentsDet.scores is null ?"": matchTournamentsDet.scores}}"
+              round="{{ matchTournamentsDet.round}}"
+              game="{{ matchTournamentsDet.games.name}}"
+              participant_1="{{ matchTournamentsDet.groupeParticipant1}}"
+              participant_2="{{ matchTournamentsDet.groupeParticipant2}}"
+              date="{{ matchTournamentsDet.date|date('d/m/Y à  H\\hi') }} "
+              description="{{ matchTournamentsDet.description}}"
+            />
+            {% else %}
+              <div class="col-12">
+                Aucun match programmer pour le moment.
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="no-top">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="subtitle wow fadeInUp mb-3">Plus d'information</div>
+                <h2 class="wow fadeInUp mb20" data-wow-delay=".2s">Détaille du tournois</h2>
+            </div>
+            <div class="col-lg-6"></div>
+           <p>{{ oneTournaments.description }}</p>
+           <section class="pt0">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="padding60 sm-padding40 jarallax position-relative">
+                                <img src="{{ asset('images/background/2.webp')}}" class="jarallax-img" alt="">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        {% if alreadyRegistered %}
+                                        <div class="subtitle wow fadeInUp mb-3">C'est a vous de jouez</div>
+                                        <h2 class="wow fadeInUp" data-wow-delay=".2s">Vous êtes inscrit à ce tournoi!</h2>
+                                        <div class="spacer-10"></div>
+                                        <a class="btn-main mb10 wow fadeInUp" href="{{ path('app_tournament_unregister',{ id: oneTournaments.id }) }}"><span>Se désinscrire</span></a>
+                                        {% else %}
+                                        <div class="subtitle wow fadeInUp mb-3">Commencez à jouer</div>
+                                        <h2 class="wow fadeInUp" data-wow-delay=".2s">Révélez Votre Talent Compétitif</h2>
+                                        <div class="spacer-10"></div>
+                                        <a class="btn-main mb10 wow fadeInUp" href="{{ path('app_tournament_register',{ id: oneTournaments.id }) }}"><span>Inscription ici</span></a>
+                                        {% endif %}
+                                    {% else %}
+                                    <div class="subtitle wow fadeInUp mb-3">Commencez à jouer</div>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".2s">Connectez-vous pour vous inscrire a ce tournoi</h2>
+                                    <div class="spacer-10"></div>
+                                    <a class="btn-main mb10 wow fadeInUp" href="{{ path('app_login')}}"><span>Se connecter</span></a>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}
